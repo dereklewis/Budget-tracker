@@ -1,4 +1,5 @@
 let transactions = [];
+console.log(transactions); 
 let myChart;
 
 fetch("/api/transaction")
@@ -98,7 +99,7 @@ function sendTransaction(isAdding) {
     value: amountEl.value,
     date: new Date().toISOString()
   };
-  console.log(transaction);
+  
 
   // if subtracting funds, convert amount to negative number
   if (!isAdding) {
@@ -138,7 +139,7 @@ function sendTransaction(isAdding) {
   .catch(err => {
     // fetch failed, so save in indexed db
     saveRecord(transaction);
-
+    
     // clear form
     nameEl.value = "";
     amountEl.value = "";
